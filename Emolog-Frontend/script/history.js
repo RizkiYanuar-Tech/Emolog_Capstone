@@ -58,11 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (err) { alert(err.message); }
   }
 
-  function editEntry(id) {
-    // Contoh sederhana: arahkan user ke halaman journaling dengan id di query
-    window.location.href = `../journaling/journaling.html?entry_id=${id}`;
-  }
-
   /* ---------- CALENDAR RENDER ---------- */
   function renderCalendar() {
     // Header
@@ -135,18 +130,15 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="mood-display">Mood: ${getEmojiByEmotion(entry.emotion_id)}</div>
           <div class="action-buttons">
               <button class="btn-secondary delete-btn" data-id="${entry.id}">Delete</button>
-              <button class="btn-primary edit-btn"   data-id="${entry.id}">Edit</button>
           </div>
           <hr/>
         `;
         diaryContainer.appendChild(entryEl);
       });
 
-      // Pasang event Edit & Delete
+      // Pasang event Delete
       diaryContainer.querySelectorAll(".delete-btn").forEach(btn =>
         btn.addEventListener("click", () => deleteEntry(+btn.dataset.id)));
-      diaryContainer.querySelectorAll(".edit-btn").forEach(btn =>
-        btn.addEventListener("click", () => editEntry(+btn.dataset.id)));
 
     } else {
       moodEmoji.textContent = "😐";

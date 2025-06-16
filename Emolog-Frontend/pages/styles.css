@@ -506,92 +506,6 @@ nav.nav ul li a.active, nav.nav ul li a:hover {
     text-align: center;
 }
 
-/* Day Streak Section in a Box */
-.day-streak-box {
-    margin-top: 30px; /* Reduced margin */
-    background-color: #e0f2f1;
-    padding: 20px;
-    border-radius: 15px;
-}
-
-/* Container for day streak and streak details */
-.day-streak-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.streak-left {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.streak-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.streak-icon {
-    font-size: 30px;
-    margin-right: 10px;
-}
-
-.day-streak h2 {
-    font-size: 28px;
-    color: #2f2e56;
-}
-
-.streak {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.streak .day {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 5px;
-    background-color: #e0e0e0;
-    color: white;
-    font-size: 16px;
-}
-
-.streak .day.active {
-    background-color: #4CAF50;
-}
-
-/* Right side for current streak and total diary */
-.streak-right {
-    width: 35%;
-    text-align: left;
-    padding-left: 20px;
-}
-
-.streak-details {
-    font-size: 20px;
-    color: #333;
-    margin-top: 20px; /* Reduced margin */
-}
-
-.streak-details p {
-    margin: 5px 0;
-}
-
-.streak-message {
-    font-size: 16px;
-    color: #4CAF50;
-    margin-top: 20px;
-    font-weight: bold;
-}
-
 /* Latest Diary Section */
 .latest-diary {
     margin-top: 30px; /* Reduced margin */
@@ -1377,24 +1291,17 @@ body#journaling {
   font-size: 1.125rem;
 }
 
-.edit-btn {
-  padding: 0.75rem;
+.buttondelete-btn {
+  background-color: #dc3545; 
+  color: white;
   border: none;
-  background: linear-gradient(135deg, #f7fafc, #edf2f7);
-  border-radius: 12px;
+  padding: 8px 12px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.edit-btn:hover {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-}
-
-.edit-btn:hover .icon {
-  fill: white;
+.delete-btn:hover {
+  background-color: #c82333; 
 }
 
 .diary-content {
@@ -2226,32 +2133,6 @@ button:disabled {
   margin-bottom: 1rem;
 }
 
-.insight-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-  padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 8px;
-}
-
-.insight-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-}
-
-.insight-text {
-  font-size: 0.875rem;
-  color: #475569;
-  line-height: 1.4;
-}
-
         /* Weekly Trend */
 .weekly-trend {
   margin-top: 2rem;
@@ -2295,61 +2176,6 @@ button:disabled {
   color: #0f172a;
 }
 
-        /* Suggest Section */
-.suggest-section {
-  grid-column: 1 / -1;
-}
-
-.suggest-container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2rem;
-  margin-top: 1.5rem;
-}
-
-.suggest-card {
-  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-  border-radius: 16px;
-  padding: 2rem;
-  border: 1px solid rgba(59, 130, 246, 0.1);
-}
-
-.suggestion-item {
-  display: flex;
-  align-items: start;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  border: 1px solid rgba(59, 130, 246, 0.1);
-}
-
-.suggestion-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  flex-shrink: 0;
-}
-
-.suggestion-content h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #0f172a;
-  margin-bottom: 0.5rem;
-}
-
-.suggestion-content p {
-  font-size: 0.875rem;
-  color: #64748b;
-  line-height: 1.4;
-}
 
         /* Mood Bar Section */
 .mood-bar-section {

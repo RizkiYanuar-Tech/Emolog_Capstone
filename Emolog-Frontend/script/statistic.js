@@ -54,15 +54,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     // === MOOD TERBANYAK MINGGU INI ===
     const now = new Date();
     now.setHours(23, 59, 59, 999);
-    console.log("Current date:", now);
     const weekAgo = new Date();
     weekAgo.setDate(now.getDate() - 6);
     weekAgo.setHours(0, 0, 0, 0);
-    console.log("Week start date:", weekAgo);
 
     const thisWeekEntries = entries.filter(e => {
-      const d = new Date(e.entry_date || e.created_at);
-      console.log("Entry date:", d);
+      const d = new Date(e.created_at);
       return d >= weekAgo && d <= now;
     });
 
@@ -82,10 +79,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const trendMap = {};
 
     thisWeekEntries.forEach(entry => {
-      const date = new Date(entry.entry_date || entry.created_at);
-      console.log("Entry date:", date);
+      const date = new Date(entry.created_at);
       const dayIndex = date.getDay(); // 0 = Minggu, 1 = Senin, ...
-      console.log("Day index:", dayIndex);
       trendMap[dayIndex] = getEmojiByEmotion(entry.emotion_id);
     });
 
