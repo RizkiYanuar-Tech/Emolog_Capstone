@@ -5,7 +5,7 @@ import torch
 from fastapi.middleware.cors import CORSMiddleware
 
 # Path ke model IndoBERT
-model_path = "Emolog-ML\checkpoint-1315"
+model_path = "Emolog-ML/checkpoint-1315"
 
 # Load tokenizer dan model IndoBERT
 tokenizer = BertTokenizer.from_pretrained(model_path)
@@ -13,6 +13,10 @@ model = BertForSequenceClassification.from_pretrained(model_path)
 
 # FastAPI app instance
 app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Emolog ML API RUNNING!"}
 
 # Middleware CORS
 app.add_middleware(
