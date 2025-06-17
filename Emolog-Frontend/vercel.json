@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "webpack.common.js",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/dist/$1"
+    }
+  ]
+}
