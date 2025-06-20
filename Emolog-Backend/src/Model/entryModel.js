@@ -7,7 +7,7 @@ class Entry {
         const entryTimestamp = new Date(entryDate + 'T16:56:50.639Z');
 
         const result = await db.query(
-          `INSERT INTO entries (user_id, title, entry_text, emotion_id, entry_date, created_at)
+          `INSERT INTO tbl_entries (user_id, title, entry_text, emotion_id, entry_date, created_at)
           VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING *`,
           [userId, title, entryText, emotion_id, entryTimestamp]
     );

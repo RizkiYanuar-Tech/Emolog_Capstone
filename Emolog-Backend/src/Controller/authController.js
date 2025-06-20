@@ -15,7 +15,7 @@ exports.register = async (req, res) => {
 
   try {
     // Cek apakah email atau username sudah ada
-    const checkQuery = "SELECT * FROM users WHERE email = $1 OR username = $2";
+    const checkQuery = "SELECT * FROM tbl_users WHERE email = $1 OR username = $2";
     const checkResult = await db.query(checkQuery, [email, username]);
 
     if (checkResult.rows.length > 0) {
@@ -29,9 +29,9 @@ exports.register = async (req, res) => {
 
     // Insert user baru ke database
     const insertQuery = `
-      INSERT INTO users (username, email, password)
+      INSERT INTO tbl_users (username, email, password_hash)
       VALUES ($1, $2, $3)
-      RETURNING id, username, email
+      RETURNING user_id, username, email
     `;
     const result = await db.query(insertQuery, [username, email, hashedPassword]);
 
@@ -63,7 +63,7 @@ exports.login = async (req, res) => {
 
   try {
     // Cari user berdasarkan email
-    const query = "SELECT * FROM users WHERE email = $1";
+    const query = "SELECT * FROM tbl_users WHERE email = $1";
     const result = await db.query(query, [email]);
 
     if (result.rows.length === 0) {
@@ -124,7 +124,7 @@ exports.profile = async (req, res) => {
     
     // Query untuk mendapatkan data user
     const result = await db.query(
-      "SELECT id, username, email FROM users WHERE id = $1",
+      "SELECT user_id, username, email FROM tbl_users WHERE id = $1",
       [userId]
     );
 
