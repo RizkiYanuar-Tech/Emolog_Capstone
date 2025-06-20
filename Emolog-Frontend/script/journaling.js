@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       // Step 1: PREDICT MOOD FIRST
-      const predictRes = await fetch("http://localhost:3000/api/emotion/predict", {
+      const predictRes = await fetch("https://emologcapstone-production.up.railway.app/api/emotion/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: entry_text })
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const emotion_id = moodToEmotionId[mood] || 2; // default to neutral
 
       // Step 3: SAVE JOURNAL ENTRY
-      const response = await fetch("http://localhost:3000/api/entries", {
+      const response = await fetch("https://emologcapstone-production.up.railway.app/api/entries", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

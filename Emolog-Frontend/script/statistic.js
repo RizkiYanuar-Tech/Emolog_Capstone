@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const res = await fetch("http://localhost:3000/api/entries", {
+    const res = await fetch("https://emologcapstone-production.up.railway.app/api/entries", {
       headers: {
         Authorization: `Bearer ${token}`
       }

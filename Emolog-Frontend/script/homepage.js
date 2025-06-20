@@ -109,7 +109,7 @@ function getEmojiByEmotion(emotionId) {
 // Function untuk fetch diary terakhir
 async function fetchLatestDiary(token) {
   try {
-    const response = await fetch("http://localhost:3000/api/entries", {
+    const response = await fetch("https://emologcapstone-production.up.railway.app/api/entries", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -165,7 +165,7 @@ async function fetchLatestDiary(token) {
     }
 
     if (latestEntry?.emotion_id !== undefined) {
-      const suggestRes = await fetch("http://localhost:3000/api/emotion/suggest", {
+      const suggestRes = await fetch("https://emologcapstone-production.up.railway.app/emotion/suggest", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -189,7 +189,7 @@ async function fetchLatestDiary(token) {
 
 async function fetchQuoteSuggestion(emotion_id) {
   try {
-    const response = await fetch("http://localhost:3000/api/emotion/suggest", {
+    const response = await fetch("https://emologcapstone-production.up.railway.app/api/emotion/suggest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -228,7 +228,7 @@ async function fetchWeeklyEntries(token, startDate) {
 
     try {
       // Coba endpoint range dulu
-      response = await fetch(`http://localhost:3000/api/entries/range?start=${start}&end=${end}`, {
+      response = await fetch(`https://emologcapstone-production.up.railway.app/api/entries/range?start=${start}&end=${end}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -244,7 +244,7 @@ async function fetchWeeklyEntries(token, startDate) {
       console.warn("⚠️ Endpoint /range tidak tersedia, mencoba endpoint utama:", rangeError.message);
       
       // Fallback ke endpoint utama dan filter di frontend
-      response = await fetch("http://localhost:3000/api/entries", {
+      response = await fetch("https://emologcapstone-production.up.railway.app/api/entries", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

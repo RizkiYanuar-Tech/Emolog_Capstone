@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  fetch("http://localhost:3000/api/profile", {
+  fetch("https://emologcapstone-production.up.railway.app/api/profile", {
     method: "GET",
     headers: {
       "Authorization": `Bearer ${token}`,
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
-        const response = await fetch("http://localhost:3000/api/profile/email", {
+        const response = await fetch("https://emologcapstone-production.up.railway.app/api/profile/email", {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/profile/password", {
+      const res = await fetch("https://emologcapstone-production.up.railway.app/api/profile/password", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

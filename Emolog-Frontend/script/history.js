@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- API ---------- */
   async function fetchEntries() {
     try {
-      const res = await fetch("http://localhost:3000/api/entries", {
+      const res = await fetch("https://emologcapstone-production.up.railway.app/api/entries", {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (!res.ok) throw new Error("Gagal mengambil data journaling");
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function deleteEntry(id) {
     try {
-      const res = await fetch(`http://localhost:3000/api/entries/${id}`, {
+      const res = await fetch(`https://emologcapstone-production.up.railway.app/api/entries/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` }
       });
