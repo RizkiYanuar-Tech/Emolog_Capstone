@@ -49,7 +49,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: '/pages/login/login.html',
-      filename: 'login.html'
+      filename: 'login/login.html'
     }),
     new HtmlWebpackPlugin({
       template: '/pages/home/homepage.html',
