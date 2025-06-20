@@ -8,8 +8,8 @@ exports.getMood = async (req, res) => {
       return res.status(400).json({ message: "text tidak boleh kosong dan harus berupa teks." });
     }
 
-    // Kirim ke model FastAPI (lokal)
-    const response = await axios.post("http://127.0.0.1:8000/get_mood/", {
+    // Kirim ke model FastAPI
+    const response = await axios.post("https://rizkiyanuar-emolog-ml-api.hf.space/get_mood/", {
       text: text,
     });
 
