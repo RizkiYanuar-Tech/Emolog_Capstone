@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const authMiddleware = require("../middleware/authMiddleware");
-const db = require("../config/db"); // pakai config/db.js kamu
+const db = require("../Config/db"); // pakai config/db.js kamu
 const bcrypt = require("bcrypt");
 
 // GET /api/auth/profile
