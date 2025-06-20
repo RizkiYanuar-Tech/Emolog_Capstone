@@ -1,6 +1,6 @@
 // src/models/user.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // path ini disesuaikan
+const sequelize = require('../Config/db'); // path ini disesuaikan
 
 const User = sequelize.define('User', {
   username: {
