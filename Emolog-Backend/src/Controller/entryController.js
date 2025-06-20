@@ -6,11 +6,11 @@ const Entry = require('../Model/entryModel');
 // @access  Private
 exports.createEntry = async (req, res) => {
   const { title, entry_text, entry_date } = req.body;
-  const userId = req.user.id; // ✅ dari token JWT (pastikan middleware benar)
+  const userId = req.user.id; 
 
   try {
     // Step 1: Kirim teks ke model AI untuk mendapatkan mood
-    const aiResponse = await axios.post("http://127.0.0.1:8000/get_mood/", {
+    const aiResponse = await axios.post("https://rizkiyanuar-emolog-ml-api.hf.space/get_mood/", {
       text: entry_text,
     });
 
