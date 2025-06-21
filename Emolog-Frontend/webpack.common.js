@@ -8,6 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     clean: true
   },
+  mode: 'production',
   module: {
     rules: [
       {
