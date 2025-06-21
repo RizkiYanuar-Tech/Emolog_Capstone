@@ -48,7 +48,7 @@ module.exports = {
       filename: 'register/register.html'
     }),
     new HtmlWebpackPlugin({
-      template: 'pages/login/login.html',
+      template: './pages/login/login.html',
       filename: 'login.html'
     }),
     new HtmlWebpackPlugin({
