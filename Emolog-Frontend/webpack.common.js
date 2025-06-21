@@ -44,31 +44,31 @@ module.exports = {
       filename: 'index.html'
     }),
     new HtmlWebpackPlugin({
-      template: '/pages/register/register.html',
+      template: './pages/register/register.html',
       filename: 'register/register.html'
     }),
     new HtmlWebpackPlugin({
-      template: '/pages/login/login.html',
+      template: './pages/login/login.html',
       filename: 'login.html'
     }),
     new HtmlWebpackPlugin({
-      template: '/pages/home/homepage.html',
+      template: './pages/home/homepage.html',
       filename: 'home/homepage.html'
     }),
     new HtmlWebpackPlugin({
-      template: '/pages/journaling/journaling.html',
+      template: './pages/journaling/journaling.html',
       filename: 'journaling/journaling.html'
     }),
     new HtmlWebpackPlugin({
-      template: '/pages/statistic/statistic.html',
+      template: './pages/statistic/statistic.html',
       filename: 'statistic/statistic.html'
     }),
     new HtmlWebpackPlugin({
-      template: '/pages/history/history.html',
+      template: './pages/history/history.html',
       filename: 'history/history.html'
     }),
     new HtmlWebpackPlugin({
-      template: '/pages/profile/profile.html',
+      template: './pages/profile/profile.html',
       filename: 'profile/profile.html'
     })
   ]
