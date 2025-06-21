@@ -165,7 +165,7 @@ async function fetchLatestDiary(token) {
     }
 
     if (latestEntry?.emotion_id !== undefined) {
-      const suggestRes = await fetch("https://emologcapstone-production.up.railway.app/emotion/suggest", {
+      const suggestRes = await fetch("https://emologcapstone-production.up.railway.app/api/emotion/suggest", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

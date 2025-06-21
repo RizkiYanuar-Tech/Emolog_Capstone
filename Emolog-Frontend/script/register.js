@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("registerForm");
+  const form = document.querySelector("form");
   const usernameInput = document.getElementById("username"); // pakai id="name" di input
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       alert("Registrasi berhasil! Silakan login.");
-      window.location.href = "login.html";
+      window.location.href = "../login/login.html";
 
     } catch (error) {
       console.error("Registration error:", error);
