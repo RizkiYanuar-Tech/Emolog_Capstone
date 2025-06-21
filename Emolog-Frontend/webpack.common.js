@@ -40,35 +40,35 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: '/pages/index.html',
+      template: path.resolve(__dirname, 'pages/index.html'),
       filename: 'index.html'
     }),
     new HtmlWebpackPlugin({
-      template: './pages/register/register.html',
+      template: path.resolve(__dirname, 'pages/register/register.html'),
       filename: 'register/register.html'
     }),
     new HtmlWebpackPlugin({
-      template: './pages/login/login.html',
-      filename: 'login.html'
+      template: path.resolve(__dirname, 'pages/login/login.html'),
+      filename: 'login/login.html'
     }),
     new HtmlWebpackPlugin({
-      template: './pages/home/homepage.html',
+      template: path.resolve(__dirname, 'pages/home/homepage.html'),
       filename: 'home/homepage.html'
     }),
     new HtmlWebpackPlugin({
-      template: './pages/journaling/journaling.html',
+      template: path.resolve(__dirname, 'pages/journaling/journaling.html'),
       filename: 'journaling/journaling.html'
     }),
     new HtmlWebpackPlugin({
-      template: './pages/statistic/statistic.html',
+      template: path.resolve(__dirname, 'pages/statistic/statistic.html'),
       filename: 'statistic/statistic.html'
     }),
     new HtmlWebpackPlugin({
-      template: './pages/history/history.html',
+      template: path.resolve(__dirname, 'pages/history/history.html'),
       filename: 'history/history.html'
     }),
     new HtmlWebpackPlugin({
-      template: './pages/profile/profile.html',
+      template: path.resolve(__dirname, 'pages/profile/profile.html'),
       filename: 'profile/profile.html'
     })
   ]
