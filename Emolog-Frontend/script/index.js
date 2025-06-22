@@ -20,18 +20,32 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "login/login.html"; // Sesuaikan path jika perlu
       }
     }, 3000);
-  } else {
-    // 1. Muat komponen header dan footer dengan PATH YANG BENAR
-    loadComponent("header-container", "/header.html");
-    loadComponent("footer-container", "/footer.html");
+  }
 
-    // 2. Jalankan router untuk memuat JS spesifik halaman
-    const currentPath = window.location.pathname;
-    for (const page in pageRoutes) {
-      if (currentPath.includes(page)) {
-        import(pageRoutes[page]);
-        break;
-      }
-    }
+  if (headerContainer) {
+    fetch("/pages/header.html")
+      .then(res => res.text())
+      .then(data => headerContainer.innerHTML = data)
+      .catch(err => console.error("Failed to load header:", err));
+  }
+
+  if (footerContainer) {
+    fetch("/pages/footer.html")
+      .then(res => res.text())
+      .then(data => footerContainer.innerHTML = data)
+      .catch(err => console.error("Failed to load footer:", err));
+  }
+
+  // Routing dynamic JS seperti login.js, register.js, dll tetap di sini
+  const path = window.location.pathname;
+
+  if (path.includes("register.html")) {
+    import("./register.js");
+  } else if (path.includes("login.html")) {
+    import("./login.js");
+  } else if (path.includes("profile.html")) {
+    import("./profile.js");
+  } else if (path.includes("homepage.html")) {
+    import("./homepage.js");
   }
 });
