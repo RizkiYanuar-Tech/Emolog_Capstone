@@ -1,51 +1,55 @@
-import '../pages/styles.css';
+// script/index.js (VERSI FINAL YANG SUDAH DIPERBAIKI)
+
+import '../pages/styles.css'; // Pastikan path ini benar
 
 document.addEventListener("DOMContentLoaded", () => {
-  const SplashScreen = document.getElementById("page-splash-screen");
-  const headerContainer = document.getElementById("header-container");
-  const footerContainer = document.getElementById("footer-container");
+  const isSplashScreen = document.getElementById("page-splash-screen");
 
-  if(SplashScreen){
+  // Menggunakan IF/ELSE untuk memisahkan logika
+  if (isSplashScreen) {
     function isLoggedIn() {
-      // Misalnya, periksa keberadaan token di localStorage atau cookie.
       return localStorage.getItem('userToken') !== null;
     }
-    // Redirect setelah animasi selesai (misalnya 3 detik)
+
     setTimeout(() => {
       if (isLoggedIn()) {
-        // Jika sudah login, arahkan ke halaman home
-        window.location.href = "home/homepage.html"; // Sesuaikan path jika perlu
+        // MENGGUNAKAN PATH ABSOLUT
+        window.location.href = "/home/homepage.html";
       } else {
-        // Jika belum login, arahkan ke halaman login
-        window.location.href = "login/login.html"; // Sesuaikan path jika perlu
+        // MENGGUNAKAN PATH ABSOLUT
+        window.location.href = "/login/login.html";
       }
     }, 3000);
-  }
 
-  if (headerContainer) {
-    fetch("/pages/header.html")
-      .then(res => res.text())
-      .then(data => headerContainer.innerHTML = data)
-      .catch(err => console.error("Failed to load header:", err));
-  }
+  } else {
+    const headerContainer = document.getElementById("header-container");
+    const footerContainer = document.getElementById("footer-container");
 
-  if (footerContainer) {
-    fetch("/pages/footer.html")
-      .then(res => res.text())
-      .then(data => footerContainer.innerHTML = data)
-      .catch(err => console.error("Failed to load footer:", err));
-  }
+    if (headerContainer) {
+      // MENGGUNAKAN PATH FETCH YANG BENAR
+      fetch("/header.html")
+        .then(res => res.text())
+        .then(data => headerContainer.innerHTML = data)
+        .catch(err => console.error("Gagal memuat header:", err));
+    }
 
-  // Routing dynamic JS seperti login.js, register.js, dll tetap di sini
-  const path = window.location.pathname;
+    if (footerContainer) {
+      // MENGGUNAKAN PATH FETCH YANG BENAR
+      fetch("/footer.html")
+        .then(res => res.text())
+        .then(data => footerContainer.innerHTML = data)
+        .catch(err => console.error("Gagal memuat footer:", err));
+    }
 
-  if (path.includes("register.html")) {
-    import("./register.js");
-  } else if (path.includes("login.html")) {
-    import("./login.js");
-  } else if (path.includes("profile.html")) {
-    import("./profile.js");
-  } else if (path.includes("homepage.html")) {
-    import("./homepage.js");
+    const path = window.location.pathname;
+    if (path.includes("register.html")) {
+      import("./register.js");
+    } else if (path.includes("login.html")) {
+      import("./login.js");
+    } else if (path.includes("profile.html")) {
+      import("./profile.js");
+    } else if (path.includes("homepage.html")) {
+      import("./homepage.js");
+    }
   }
 });
