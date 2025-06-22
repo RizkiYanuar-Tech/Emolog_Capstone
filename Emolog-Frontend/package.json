@@ -6,6 +6,7 @@
   "scripts": {
     "start": "serve -s dist",
     "build": "webpack --config webpack.prod.js",
+    "preview": "serve -dist",
     "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
