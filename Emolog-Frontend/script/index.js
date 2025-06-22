@@ -1,5 +1,3 @@
-// script/index.js (VERSI FINAL YANG SUDAH DIPERBAIKI)
-
 import '../pages/styles.css'; // Pastikan path ini benar
 
 document.addEventListener("DOMContentLoaded", () => {
