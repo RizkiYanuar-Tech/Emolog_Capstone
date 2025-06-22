@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -30,7 +31,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/images/[name][hash][ext][query]' // atur output gambar
+          filename: 'assets/[name][ext][query]' // atur output gambar
         }
       },
       {
@@ -40,37 +41,45 @@ module.exports = {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        { 
+          from: 'assets', 
+          to: 'assets',
+        }
+      ]
+    }),
     new HtmlWebpackPlugin({
       template: './pages/index.html',
       filename: 'index.html'
     }),
     new HtmlWebpackPlugin({
       template: './pages/register/register.html',
-      filename: '/register/register.html'
+      filename: '/pages/register.html'
     }),
     new HtmlWebpackPlugin({
       template: './pages/login/login.html',
-      filename: '/login/login.html'
+      filename: '/pages/login.html'
     }),
     new HtmlWebpackPlugin({
       template: './pages/home/homepage.html',
-      filename: '/home/homepage.html'
+      filename: '/pages/home.html'
     }),
     new HtmlWebpackPlugin({
       template: './pages/journaling/journaling.html',
-      filename: '/journaling/journaling.html'
+      filename: '/pages/journaling.html'
     }),
     new HtmlWebpackPlugin({
       template: './pages/statistic/statistic.html',
-      filename: '/statistic/statistic.html'
+      filename: '/pages/statistic.html'
     }),
     new HtmlWebpackPlugin({
       template: './pages/history/history.html',
-      filename: '/history/history.html'
+      filename: '/pages/history.html'
     }),
     new HtmlWebpackPlugin({
       template: './pages/profile/profile.html',
-      filename: '/profile/profile.html'
+      filename: '/pages/profile.html'
     })
   ]
 };
