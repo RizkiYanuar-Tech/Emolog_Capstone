@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       if (isLoggedIn()) {
         // MENGGUNAKAN PATH ABSOLUT
-        window.location.href = "/home/homepage.html";
+        window.location.href = "/home/homepage";
       } else {
         // MENGGUNAKAN PATH ABSOLUT
-        window.location.href = "/login/login.html";
+        window.location.href = "/login/login";
       }
     }, 3000);
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (headerContainer) {
       // MENGGUNAKAN PATH FETCH YANG BENAR
-      fetch("/header.html")
+      fetch("/header")
         .then(res => res.text())
         .then(data => headerContainer.innerHTML = data)
         .catch(err => console.error("Gagal memuat header:", err));
@@ -33,20 +33,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (footerContainer) {
       // MENGGUNAKAN PATH FETCH YANG BENAR
-      fetch("/footer.html")
+      fetch("/footer")
         .then(res => res.text())
         .then(data => footerContainer.innerHTML = data)
         .catch(err => console.error("Gagal memuat footer:", err));
     }
 
     const path = window.location.pathname;
-    if (path.includes("register.html")) {
+    if (path.includes("/register/")) {
       import("./register.js");
-    } else if (path.includes("login.html")) {
+    } else if (path.includes("/login/")) {
       import("./login.js");
-    } else if (path.includes("profile.html")) {
+    } else if (path.includes("/profile/")) {
       import("./profile.js");
-    } else if (path.includes("homepage.html")) {
+    } else if (path.includes("/homepage/")) {
       import("./homepage.js");
     }
   }

@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       alert("Registrasi berhasil! Silakan login.");
-      window.location.href = "../login/login.html";
+      window.location.href = "/pages/login/";
 
     } catch (error) {
       console.error("Registration error:", error);

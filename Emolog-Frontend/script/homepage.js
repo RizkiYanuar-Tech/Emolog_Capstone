@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Redirect ke login jika tidak ada token/username
   if (!username || !token) {
-    window.location.href = "../login/login.html";
+    window.location.href = "/pages/login/";
     return;
   }
 
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.querySelector(".start-journaling-btn");
   if (startBtn) {
     startBtn.addEventListener("click", () => {
-      window.location.href = "../journaling/journaling.html";
+      window.location.href = "/pages/journaling/";
     });
   }
 

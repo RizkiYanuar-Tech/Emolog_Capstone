@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!token) {
     alert("Token tidak ditemukan, silakan login kembali.");
-    window.location.href = "../login/login.html";
+    window.location.href = "/pages/login/";
     return;
   }
 
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (err.message.includes("jwt")) {
         localStorage.clear();
-        window.location.href = "../login/login.html";
+        window.location.href = "/pages/login/";
       }
     });
 
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (konfirmasi) {
         localStorage.clear();
         alert("Kamu telah logout.");
-        window.location.href = "../login/login.html";
+        window.location.href = "/pages/login/";
       }
     });
   }
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         alert("Email berhasil diperbarui. Silakan login kembali.");
         localStorage.clear();
-        window.location.href = "../login/login.html";
+        window.location.href = "/pages/login/";
       } catch (err) {
         alert("Error saat update email: " + err.message);
         console.error(err);
