@@ -1,9 +1,9 @@
-import '../pages/styles.css'; // Pastikan path ini benar
+import '../pages/styles.css'; // Make sure this path is correct based on your bundle output
 
 document.addEventListener("DOMContentLoaded", () => {
   const isSplashScreen = document.getElementById("page-splash-screen");
 
-  // Menggunakan IF/ELSE untuk memisahkan logika
+  // Logic for the Splash Screen page
   if (isSplashScreen) {
     function isLoggedIn() {
       return localStorage.getItem('userToken') !== null;
@@ -11,34 +11,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
       if (isLoggedIn()) {
-        // MENGGUNAKAN PATH ABSOLUT
-        window.location.href = "/home/homepage";
+        // CORRECT PATH: Point to the /pages/home/ directory
+        window.location.href = "/pages/home/";
       } else {
-        // MENGGUNAKAN PATH ABSOLUT
-        window.location.href = "/login/login";
+        // CORRECT PATH: Point to the /pages/login/ directory
+        window.location.href = "/pages/login/";
       }
     }, 3000);
 
   } else {
+    // Logic for all other pages
     const headerContainer = document.getElementById("header-container");
     const footerContainer = document.getElementById("footer-container");
 
     if (headerContainer) {
-      // MENGGUNAKAN PATH FETCH YANG BENAR
-      fetch("/header")
-        .then(res => res.text())
+      // CORRECT PATH: Fetch the actual header.html file
+      fetch("/pages/header.html")
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+          return res.text();
+        })
         .then(data => headerContainer.innerHTML = data)
-        .catch(err => console.error("Gagal memuat header:", err));
+        .catch(err => console.error("Failed to load header:", err));
     }
 
     if (footerContainer) {
-      // MENGGUNAKAN PATH FETCH YANG BENAR
-      fetch("/footer")
-        .then(res => res.text())
+      // CORRECT PATH: Fetch the actual footer.html file
+      fetch("/pages/footer.html")
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+          return res.text();
+        })
         .then(data => footerContainer.innerHTML = data)
-        .catch(err => console.error("Gagal memuat footer:", err));
+        .catch(err => console.error("Failed to load footer:", err));
     }
 
+    // This router part is already correct! Great job here.
     const path = window.location.pathname;
     if (path.includes("/register/")) {
       import("./register.js");
@@ -46,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       import("./login.js");
     } else if (path.includes("/profile/")) {
       import("./profile.js");
-    } else if (path.includes("/homepage/")) {
+    } else if (path.includes("/home/")) { // Adjusted to match your redirect
       import("./homepage.js");
     }
   }
