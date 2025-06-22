@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       if (isLoggedIn()) {
         // CORRECT PATH: Point to the /pages/home/ directory
-        window.location.href = "/pages/home/";
+        window.location.href = "homepage.html";
       } else {
         // CORRECT PATH: Point to the /pages/login/ directory
-        window.location.href = "/pages/login/";
+        window.location.href = "login.html";
       }
     }, 3000);
 
