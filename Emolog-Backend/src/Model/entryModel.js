@@ -11,7 +11,6 @@ class Entry {
           VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING *`,
           [userId, title, entryText, emotion_id, entryTimestamp]
     );
-
         return result.rows[0];
     }
 

@@ -4,12 +4,24 @@ const Entry = require('../Model/entryModel');
 // @desc    Membuat entri baru
 // @route   POST /api/entries
 // @access  Private
+// entryController.js
+
 exports.createEntry = async (req, res) => {
   const { title, entry_text, entry_date } = req.body;
+
+  // ===== TAMBAHKAN BARIS INI UNTUK DEBUGGING =====
+  console.log('DEBUG: Isi dari req.user:', req.user); 
+  
+  // Lakukan pengecekan untuk memberikan pesan error yang lebih baik
+  if (!req.user || !req.user.id) {
+    console.error("Error Otentikasi: req.user.id tidak ditemukan.");
+    return res.status(401).json({ message: "Gagal melakukan otentikasi, ID user tidak ditemukan." });
+  }
+
   const userId = req.user.id; 
 
   try {
-    // Step 1: Kirim teks ke model AI untuk mendapatkan mood
+    // ... sisa kode Anda tidak perlu diubah ...
     const aiResponse = await axios.post("https://rizkiyanuar-emolog-ml-api.hf.space/get_mood/", {
       text: entry_text,
     });
@@ -26,7 +38,7 @@ exports.createEntry = async (req, res) => {
     res.status(201).json({ message: "Entry berhasil dibuat", entry: result });
   } catch (error) {
     console.error("Create entry error:", error);
-    res.status(500).json({ message: "Gagal membuat entri baru", error });
+    res.status(500).json({ message: "Gagal membuat entri baru", error: error.message });
   }
 };
 
