@@ -1,38 +1,35 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const username = localStorage.getItem("username");
-  const token = localStorage.getItem("token");
+const username = localStorage.getItem("username");
+const token = localStorage.getItem("token");
 
-  // Redirect ke login jika tidak ada token/username
-  if (!username || !token) {
-    window.location.href = "/pages/login/";
-    return;
-  }
+// Redirect ke login jika tidak ada token/username
+if (!username || !token) {
+  window.location.href = "/pages/login/";
+}
 
-  // Ganti greeting dengan username
-  const greetingElement = document.querySelector(".greeting-text h1");
-  if (greetingElement) {
-    greetingElement.textContent = `Halo, ${username}!`;
-  }
+// Ganti greeting dengan username
+const greetingElement = document.querySelector(".greeting-text h1");
+if (greetingElement) {
+  greetingElement.textContent = `Halo, ${username}!`;
+}
 
-  // Tombol "Mulai Menulis"
-  const startBtn = document.querySelector(".start-journaling-btn");
-  if (startBtn) {
-    startBtn.addEventListener("click", () => {
-      window.location.href = "/pages/journaling/";
-    });
-  }
+// Tombol "Mulai Menulis"
+const startBtn = document.querySelector(".start-journaling-btn");
+if (startBtn) {
+  startBtn.addEventListener("click", () => {
+    window.location.href = "/pages/journaling/";
+  });
+}
 
-  // Initialize current week
-  currentWeekStart = getStartOfWeek(new Date());
-  updateWeekRangeDisplay(currentWeekStart);
+// Initialize current week
+currentWeekStart = getStartOfWeek(new Date());
+updateWeekRangeDisplay(currentWeekStart);
 
-  // Ambil entri terbaru dan entri minggu ini
-  fetchLatestDiary(token);
-  fetchWeeklyEntries(token, currentWeekStart);
+// Ambil entri terbaru dan entri minggu ini
+fetchLatestDiary(token);
+fetchWeeklyEntries(token, currentWeekStart);
 
-  // Setup event listeners untuk navigasi minggu
-  setupWeekNavigation(token);
-});
+// Setup event listeners untuk navigasi minggu
+setupWeekNavigation(token);
 
 // Global variable untuk tracking minggu saat ini
 let currentWeekStart = null;
@@ -101,7 +98,7 @@ function getEmojiByEmotion(emotionId) {
     0: "😊", // Senang
     1: "😐", // Netral
     2: "😢"  // Sedih
-  
+
   };
   return emojiMap[emotionId] || "📌";
 }
@@ -242,7 +239,7 @@ async function fetchWeeklyEntries(token, startDate) {
       }
     } catch (rangeError) {
       console.warn("⚠️ Endpoint /range tidak tersedia, mencoba endpoint utama:", rangeError.message);
-      
+
       // Fallback ke endpoint utama dan filter di frontend
       response = await fetch("https://emologcapstone-production.up.railway.app/api/entries", {
         headers: {
@@ -299,7 +296,7 @@ function renderWeeklyRecap(entries, weekStartDate) {
   // Render setiap hari dalam seminggu
   weekDays.forEach((date, index) => {
     const dateString = date.toISOString().split("T")[0];
-    
+
     // Cari entry untuk tanggal ini
     const dayEntries = entries.filter(entry => {
       const entryDate = new Date(entry.entry_date || entry.created_at);
@@ -328,7 +325,7 @@ function renderWeeklyRecap(entries, weekStartDate) {
       // Ada entry untuk hari ini
       const emojiSrc = getEmojiByEmotion(dayEntry.emotion_id);
       console.log(`✅ Entry ditemukan untuk ${dateString}:`, dayEntry.entry_text.substring(0, 50) + "...");
-      
+
       item.innerHTML = `
         <div class="emoji-container">
           <div class="emoji" style="font-size: 2rem;">📌</div>

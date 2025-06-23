@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       if (isLoggedIn()) {
         // CORRECT PATH: Point to the /pages/home/ directory
-        window.location.href = "homepage.html";
+        window.location.href = "/pages/home.html";
       } else {
         // CORRECT PATH: Point to the /pages/login/ directory
-        window.location.href = "login.html";
+        window.location.href = "/pages/login.html";
       }
     }, 3000);
 
@@ -48,14 +48,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // This router part is already correct! Great job here.
     const path = window.location.pathname;
-    if (path.includes("/register/")) {
-      import("./register.js");
-    } else if (path.includes("/login/")) {
+    if (path.includes("/history")) {
+      import("./history.js");
+    } else if (path.includes("/home")) {
+      import("./home.js");
+    } else if (path.includes("/journaling")) {
+      import("./journaling.js");
+    } else if (path.includes("/login")) {
       import("./login.js");
-    } else if (path.includes("/profile/")) {
+    } else if (path.includes("/profile")) {
       import("./profile.js");
-    } else if (path.includes("/home/")) { // Adjusted to match your redirect
-      import("./homepage.js");
+    } else if (path.includes("/register")) {
+      import("./register.js");
+    } else if (path.includes("/statistic")) {
+      // import("./statistic.js");
     }
   }
 });
